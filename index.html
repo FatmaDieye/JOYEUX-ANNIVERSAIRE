@@ -188,12 +188,14 @@ h2{font-size:3rem}
 
 <section class="sc">
   <h2 class="rv">Dix raisons pour lesquelles tu es spéciale</h2>
+  <p class="rv" style="--d:.2s">Touche les cartes pour découvrir chaque raison ✨</p>
   <div class="gl rv" id="rs" style="--d:.4s"></div>
 </section>
 
 <section class="sc dk">
   <button class="env rv" id="env" aria-label="Ouvrir la lettre">💌</button>
   <p class="rv" id="ep" style="--d:.5s">J'ai quelque chose que je ne veux pas laisser passer sans te dire…</p>
+  <p class="rv" id="eh" style="--d:1.2s;font-size:.95rem">Touche la lettre pour l'ouvrir 💌</p>
   <div class="lt" id="lt">
     <p class="rv" style="--d:.2s">Faty,</p>
     <p class="rv" style="--d:1.2s">Je cherchais depuis un moment comment te dire tout ça sans que ça sonne trop sérieux. Alors j'ai construit ce petit univers pour toi, parce qu'un simple message ne suffisait pas.</p>
@@ -323,7 +325,7 @@ function fc(host,a,b,c){var e=document.createElement('button');e.className='fc '
 ["Tu me fais rire, même quand je boude.","Ta bienveillance, sans jamais me juger.","Nos conversations de tout et de rien.","Tu es toi-même, sans filtre.","Les fous rires qui nous font mal au ventre.","Tu es quelqu'un sur qui je peux toujours compter.","Même quand tu ne m'entends pas, tu restes ma personne.","Notre complicité qui n'a pas besoin de mots.","Les souvenirs que nous avons déjà créés.","Ton sourire qui rend les journées plus légères."].forEach(function(t,i){fc($('#rs'),i+1,t)});
 fc($('#rs'),'11','Et si je devais ajouter une onzième raison, puis une douzième, puis une centième, je pourrais continuer longtemps. Parce que certaines personnes ne se résument pas à une liste. Elles se ressentent, elles se vivent.','w');
 $('#cake').onclick=function(){var c=this;if(c.classList.contains('off'))return;c.classList.add('off');$('#ck').textContent='Fais un vœu… ✨';var r=c.getBoundingClientRect();fw(r.left+r.width/2,r.top,60);show();burst()};
-$('#env').onclick=function(){this.hidden=true;$('#ep').hidden=true;$('#lt').classList.add('show');void $('#lt').offsetWidth;A('#lt .rv').forEach(function(e){e.classList.add('in')});if(vc.getAttribute('src'))$('#vo').hidden=false};
+$('#env').onclick=function(){this.hidden=true;$('#ep').hidden=true;$('#eh').hidden=true;$('#lt').classList.add('show');void $('#lt').offsetWidth;A('#lt .rv').forEach(function(e){e.classList.add('in')});if(vc.getAttribute('src'))$('#vo').hidden=false};
 go(0);
 })();
 </script>
