@@ -136,6 +136,8 @@ h2{font-size:3rem}
 #yt:empty{display:none}
 #yt.off{transform:translateY(-220%);opacity:0;pointer-events:none}
 #yt iframe{display:block;width:210px;height:118px;border:0}
+.cb.pulse{animation:pl 1s ease-in-out 5}
+@keyframes pl{50%{transform:scale(1.25)}}
 </style>
 </head>
 <body>
@@ -307,11 +309,14 @@ A('[data-seq]').forEach(function(s){s.addEventListener('pointerdown',function(e)
   if(c+1<bs.length){run(s,c+1,.4)}else if(sb){sb.hidden=false;void sb.offsetWidth;sb.classList.add('in')}})});
 addEventListener('pointerdown',function(e){fw(e.clientX,e.clientY,16)});
 $('#pz').onclick=function(){paused=!paused;document.body.classList.toggle('pz',paused);this.setAttribute('aria-pressed',paused);if(paused)C=[]};
-var yt=$('#yt');function ytStart(){if(yt.dataset.s)return;yt.dataset.s=1;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/Wfts_-M3qgA?autoplay=1&loop=1&playlist=Wfts_-M3qgA&playsinline=1&rel=0';f.allow='autoplay; encrypted-media';f.title='Éternelle - Jahman X-Press';yt.appendChild(f)}
+var yt=$('#yt'),yf=null,yl=false,VID='Wfts_-M3qgA';
+function ytInit(){var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+VID+'?enablejsapi=1&loop=1&playlist='+VID+'&playsinline=1&rel=0';f.allow='autoplay; encrypted-media';f.title='\u00c9ternelle - Jahman X-Press';f.onload=function(){yl=true};yf=f;yt.classList.add('off');yt.appendChild(f)}
+function ytStart(){if(yt.dataset.s||!yf)return;yt.dataset.s=1;if(yl){yf.contentWindow.postMessage(JSON.stringify({event:'command',func:'playVideo',args:[]}),'*')}else{yf.src=yf.src+'&autoplay=1'}var m=$('#mu');m.classList.add('pulse');setTimeout(function(){m.classList.remove('pulse')},6000)}
+ytInit();
 $('#mu').onclick=function(){yt.classList.toggle('off')};
 if(vc.getAttribute('src')){$('#vo').hidden=false;$('#vo').onclick=function(){vc.paused?vc.play():vc.pause()}}
 var G=[["Les bouts de Faty","Au début, je n'avais qu'un pied, un demi-visage… Maintenant on en rigole, et je ne te lâche pas avec ça.","1.jpg"],["Un fou rire de plus","Ta photo et ton souvenir viendront ici.","2.jpg"],["Un jour qui compte","Ta photo et ton souvenir viendront ici.","3.jpg"],["Toi, tout simplement","Ta photo et ton souvenir viendront ici.","4.jpg"],["Une sortie à nous","Ta photo et ton souvenir viendront ici.","5.jpg"],["Nous deux","Ta photo et ton souvenir viendront ici.","6.jpg"]];
-G.forEach(function(g,i){var b=document.createElement('button');b.className='pol';b.style.setProperty('--t',(i%2?2:-2)+'deg');b.innerHTML='<b>📸</b>';var bx=b.firstChild,ok=false,im;if(g[2]){im=new Image();im.alt=g[0];im.onload=function(){ok=true;bx.textContent='';bx.style.background='none';bx.appendChild(im)};im.src=g[2]}b.onclick=function(){var lb=$('#lbb');lb.textContent='📸';lb.style.background='';if(ok){lb.textContent='';lb.style.background='none';lb.appendChild(im.cloneNode())}$('#lb').classList.add('on')};$('#gl').appendChild(b)});
+G.forEach(function(g,i){var b=document.createElement('button');b.className='pol';b.style.setProperty('--t',(i%2?2:-2)+'deg');b.innerHTML='<b>📸</b>';var bx=b.firstChild,ok=false,im;if(g[2]){im=new Image();im.alt=g[0];var ex=['jpg','jpeg','JPG','JPEG','png','PNG'],k=0,base=g[2].replace(/\.jpg$/,'');im.onload=function(){ok=true;bx.textContent='';bx.style.background='none';bx.appendChild(im)};im.onerror=function(){k++;if(k<ex.length)im.src=base+'.'+ex[k]};im.src=base+'.'+ex[0]}b.onclick=function(){var lb=$('#lbb');lb.textContent='📸';lb.style.background='';if(ok){lb.textContent='';lb.style.background='none';lb.appendChild(im.cloneNode())}$('#lb').classList.add('on')};$('#gl').appendChild(b)});
 $('#lb').onclick=function(){this.classList.remove('on')};
 function fc(host,a,b,c){var e=document.createElement('button');e.className='fc '+(c||'');e.innerHTML='<span class="ft">'+a+'</span><span class="bk">'+b+'</span>';e.onclick=function(){e.classList.toggle('o')};host.appendChild(e)}
 [["Tu te souviens de ça ?","Ces heures passées à discuter de tout et de rien, sans jamais voir le temps passer."],["Nos moments de folie","Les fous rires incontrôlables qui nous font mal au ventre."],["Je ne répète pas","Je n'aime pas me répéter, et parfois tu ne m'entends pas. Alors je te dis : non, je ne répète pas. On se dispute pour ça… et on finit toujours par en rire."],["Si quelqu'un nous observait de l'extérieur…","Il verrait deux amies qui se taquinent sans arrêt, qui se disputent pour un rien (surtout quand je refuse de me répéter), puis qui rient cinq minutes après."]].forEach(function(m){fc($('#mm'),m[0],m[1])});
