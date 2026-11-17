@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A World Made Just for You</title>
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--p:#f6e1dd;--r:#8b2433;--pe:#fdf6f3;--g:#b24a5c;--ink:#4a2429;--d1:#f3d9d6;--d2:#e9c6c6;--ln:rgba(139,36,51,.28);box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit}
+[hidden]{display:none!important}
+html,body{height:100%;margin:0;overflow:hidden;background:var(--mat,var(--d1));transition:background .9s;color:var(--ink);font:400 16.5px/1.7 Lora,Georgia,serif;-webkit-font-smoothing:antialiased}
+h1,h2{font-family:Satisfy,'Brush Script MT',cursive;font-weight:400;margin:0 0 .7rem;line-height:1.15;text-align:center}
+h2{font-size:2.2rem}
+h2::after{content:"— ♥ —";display:block;font:400 .85rem Lora,serif;color:var(--g);letter-spacing:.2em;margin-top:6px}
+.sc p{text-align:center;margin:0 0 1rem}
+.sc{position:fixed;inset:calc(8px + env(safe-area-inset-top,0px)) 8px calc(8px + env(safe-area-inset-bottom,0px));border-radius:22px;z-index:2;display:flex;flex-direction:column;overflow-y:auto;padding:56px 18px 110px;background:linear-gradient(170deg,var(--pe),var(--p));opacity:0;visibility:hidden;transform:scale(1.04);will-change:opacity,transform;transition:opacity .9s ease,transform .9s ease,visibility 0s linear .9s}
+.sc.bf{transform:scale(.94)}
+.sc.on{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.sc.dk{background:radial-gradient(circle at 88% 6%,rgba(242,155,181,.4),transparent 45%),linear-gradient(170deg,var(--pe),var(--p));color:var(--ink)}
+.sc:not(.dk){background:radial-gradient(circle at 88% 6%,rgba(242,155,181,.4),transparent 45%),radial-gradient(circle at 8% 96%,rgba(178,74,92,.22),transparent 45%),linear-gradient(170deg,var(--pe),var(--p))}
+.sc.dk p:not(.tag){font:400 1.15rem/1.65 Lora,serif}
+.sc.dk .lt p{font-style:italic;font-size:1.1rem}
+.sc.dk p.q{font-style:italic}
+#s0{padding-top:44px;padding-bottom:60px}
+#s0 .nm{font-size:4rem}
+#s0 p:not(.tag){font-size:1.05rem;line-height:1.55;margin-bottom:.7rem}
+.sc::before,.sc::after{content:"";flex:1}
+.sc>*{flex:none;width:100%;max-width:520px;margin-left:auto;margin-right:auto}
+.rv{opacity:0;transform:translateY(14px);transition:opacity 1.1s ease,transform 1.1s ease;transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.nt.rv.in{transform:rotate(var(--t,0deg))}
+
+@keyframes fi{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.nm{font:400 5rem/1.15 Satisfy,cursive;color:var(--g);text-align:center;margin:0;text-shadow:0 0 26px rgba(178,74,92,.6)}
+.sc:not(.dk) .nm{color:var(--r);text-shadow:none}
+.tag{font-size:.8rem;letter-spacing:.3em;color:var(--g)}
+.btn{width:auto!important;margin:18px auto 0!important;border:0;border-radius:99px;padding:15px 28px;font:500 1rem Lora,serif;color:#fff0f2;background:linear-gradient(135deg,#9a2a3a,#6b1823);box-shadow:0 8px 22px rgba(107,24,35,.3);cursor:pointer}
+button:focus-visible{outline:3px solid var(--r);outline-offset:3px}
+.cake{width:150px!important;display:block;margin-bottom:10px}
+.fl{animation:fk .5s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center bottom}
+@keyframes fk{to{transform:scale(.8,1.15)}}
+.cake{cursor:pointer}
+.cake.off .fl{display:none}
+.gl{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pol{position:relative;background:#fff;border:0;border-radius:6px;padding:10px 10px 8px;box-shadow:0 8px 20px rgba(184,50,95,.2);cursor:pointer;color:var(--ink);font:inherit;transform:rotate(var(--t,0deg))}
+.pol::before{content:"";position:absolute;top:-8px;left:50%;width:46px;height:16px;transform:translateX(-50%) rotate(-3deg);background:rgba(178,74,92,.45)}
+.pol b,#lb b{display:grid;place-items:center;aspect-ratio:1;background:linear-gradient(160deg,#fbe3ea,#f3c3d1);font-size:2rem;font-weight:400}
+.pol span{display:block;margin-top:8px;font:400 .95rem Lora,serif}
+#lb{position:fixed;inset:0;z-index:8;display:none;place-items:center;background:rgba(29,10,23,.82);padding:24px}
+#lb.on{display:grid}
+.pol b img,#lb b img{width:100%;height:100%;object-fit:cover;display:block}
+#lb div{background:var(--pe);color:var(--ink);border-radius:8px;padding:16px 16px 22px;max-width:340px;text-align:center}
+#lb b{margin-bottom:12px;font-size:3rem}
+.col{display:flex;flex-direction:column;gap:12px}
+.fc{min-height:96px;border:1px solid var(--ln);border-radius:18px;background:linear-gradient(160deg,#fff,#fdeef2);box-shadow:0 8px 22px rgba(184,50,95,.14);color:var(--ink);padding:14px;font:inherit;cursor:pointer;text-align:center}
+.fc .bk{display:none;font:400 .98rem/1.45 Lora,serif}
+.fc.o .ft{display:none}
+.fc.o .bk{display:block}
+.fc.o{background:linear-gradient(160deg,#9a2a3a,#6b1823);color:var(--pe);animation:pop .45s ease}
+.fc.w{grid-column:span 2}
+.fc .ft{font:400 1.4rem Satisfy,cursive}
+.gl .fc .ft{font-size:2.4rem;color:var(--r)}
+.gl .fc .bk{font:400 .88rem/1.4 Lora,serif}
+@keyframes pop{from{transform:rotateY(80deg) scale(.95)}to{transform:none}}
+.env{display:block;text-align:center;font-size:5rem;background:none;border:0;cursor:pointer;line-height:1}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.lt{display:none;background:linear-gradient(180deg,#fffaf7,#f9ece8);color:#4a2a2f;border:1px solid rgba(139,36,51,.25);border-radius:170px 170px 16px 16px;padding:72px 24px 28px;box-shadow:0 12px 34px rgba(139,36,51,.18);position:relative;font:italic 400 1.1rem/1.65 Lora,serif}
+.lt.show{display:block}
+.lt::before{content:"♥";position:absolute;top:30px;left:50%;transform:translateX(-50%);color:var(--r);font-size:1.4rem}
+.lt .sg{color:#8f2248}
+.lt p{text-align:left!important}
+.nt{background:linear-gradient(160deg,#fff,#fdeef2);border:1px solid var(--ln);border-left:4px solid var(--g);border-radius:14px;padding:16px 18px;margin-bottom:14px;box-shadow:0 8px 20px rgba(184,50,95,.14);font:italic 400 1.1rem/1.5 Lora,serif;transform:rotate(var(--t,0deg))}
+.nt p{margin:0!important}
+.sh{animation:sk .6s!important}
+#gf{animation:bob 2.4s ease-in-out infinite}
+#sec{opacity:0;transition:opacity 1.2s ease}
+#sec.in{opacity:1}
+@keyframes sk{20%{transform:rotate(-12deg)}40%{transform:rotate(12deg)}60%{transform:rotate(-8deg)}80%{transform:rotate(8deg)}}
+.sg{font:400 2.4rem Satisfy,cursive;color:var(--g);text-align:right}
+.q{color:var(--g)}
+#fx{position:fixed;inset:0;z-index:5;pointer-events:none}
+#fr{position:fixed;inset:calc(8px + env(safe-area-inset-top,0px)) 8px calc(8px + env(safe-area-inset-bottom,0px));border:1px solid var(--ln);border-radius:22px;z-index:4;pointer-events:none}
+#nav{position:fixed;left:0;right:0;bottom:0;z-index:6;pointer-events:none;display:flex;flex-direction:column;align-items:center;gap:12px;padding:10px 20px calc(16px + env(safe-area-inset-bottom,0px))}
+#row{display:flex;gap:10px}
+.nv{pointer-events:auto;border:1px solid var(--ln);background:rgba(255,255,255,.9);color:var(--r);border-radius:99px;padding:10px 22px;font:400 .95rem Lora,serif;cursor:pointer}
+#dots{display:flex;gap:8px}
+#dots i{width:8px;height:8px;border-radius:99px;background:var(--ln);transition:all .4s}
+#dots i.on{width:22px;background:var(--g)}
+#ctl{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:12px;z-index:7;display:flex;gap:8px}
+.cb{width:40px;height:40px;border-radius:50%;border:1px solid var(--ln);background:rgba(255,255,255,.9);color:var(--r);font-size:1rem;cursor:pointer}
+.pz *:not(.rv){animation-play-state:paused!important}
+#flare{position:fixed;inset:0;z-index:5;pointer-events:none;opacity:0;background:linear-gradient(105deg,transparent 38%,rgba(255,214,222,.6) 50%,transparent 62%)}
+#flare.sw{animation:sw 1.1s ease-out}
+@keyframes sw{0%{transform:translateX(-100%);opacity:1}100%{transform:translateX(100%);opacity:1}}
+.sc.dk .nm{animation:shim 3s ease-in-out infinite}
+@keyframes shim{50%{text-shadow:0 0 44px rgba(214,120,140,.8)}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important;transition-duration:.01s!important;transition-delay:0s!important}}
+#nx{background:linear-gradient(135deg,#9a2a3a,#6b1823)!important;color:#fff0f2!important}
+.btn{text-transform:uppercase;letter-spacing:.14em;font-size:.82rem}
+.tag{color:var(--r)}
+.stg{position:absolute;top:0;bottom:0;left:0;right:0;pointer-events:none}
+.bt{position:absolute;left:14px;right:14px;top:50%;transform:translateY(-50%);text-align:center;font:500 1.5rem/1.4 Lora,serif;opacity:0}
+.bt.h{font:400 3.4rem/1.15 Satisfy,cursive;color:var(--r)}
+.bt span{display:inline-block;opacity:0;transform:translateY(26px) scale(.7)}
+.bt.in{opacity:1}
+.bt.in span{animation:wi .55s cubic-bezier(.2,1.5,.4,1) forwards;animation-delay:calc(var(--i)*.09s)}
+.bt.out{opacity:0;transform:translateY(-95%) scale(1.04);transition:opacity .45s ease,transform .45s ease}
+@keyframes wi{to{opacity:1;transform:none}}
+.sb{position:absolute;bottom:96px;left:0;right:0;margin:0 auto!important;text-align:center;opacity:0;transition:opacity .8s ease}
+.sb.in{opacity:1}
+.btn.sb{left:50%;right:auto;transform:translateX(-50%)}
+.sg.sb{font-size:2.2rem}
+.sc[data-fx=zoom]{transform:scale(.82)}.sc[data-fx=zoom].bf{transform:scale(1.18)}
+.sc[data-fx=slide]{transform:translateX(80px)}.sc[data-fx=slide].bf{transform:translateX(-80px)}
+.sc[data-fx=up]{transform:translateY(80px)}.sc[data-fx=up].bf{transform:translateY(-80px)}
+.sc[data-fx=flip]{transform:perspective(900px) rotateY(-55deg)}.sc[data-fx=flip].bf{transform:perspective(900px) rotateY(55deg)}
+.sc.on[data-fx]{transform:none}
+@media (min-width:900px){
+html,body{font-size:19px}
+.sc>*{max-width:760px}
+h2{font-size:3rem}
+.nm{font-size:7rem}
+.bt{font-size:2.2rem;left:10%;right:10%}
+.bt.h{font-size:5.5rem}
+#gl{grid-template-columns:repeat(3,1fr)}
+.lt{max-width:560px}
+.cake{width:200px!important}
+}
+.pol{padding-bottom:28px}
+.sc>*{margin-left:auto!important;margin-right:auto!important}
+#lb div{width:min(420px,86vw);max-width:none;padding:14px}
+#lb b{aspect-ratio:auto;min-height:260px;margin:0;background:none}
+#lb b img{height:auto;max-height:72vh;object-fit:contain;border-radius:4px}
+#yt{position:fixed;top:calc(58px + env(safe-area-inset-top,0px));right:12px;z-index:7;width:210px;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(107,24,35,.3);background:#000;transition:transform .35s ease,opacity .35s ease}
+#yt:empty{display:none}
+#yt.off{transform:translateY(-220%);opacity:0;pointer-events:none}
+#yt iframe{display:block;width:210px;height:118px;border:0}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas><div id="fr"></div><div id="flare"></div>
+<div id="ctl"><button class="cb" id="pz" aria-label="Mettre les animations en pause" aria-pressed="false">✦</button><button class="cb" id="mu" aria-label="Afficher ou masquer la musique">♪</button></div>
+<!-- Pour ajouter la musique ou la voix : mets le fichier dans assets/ puis ajoute src="assets/musique.mp3" / src="assets/voix.mp3" -->
+<audio id="bgm" loop></audio><div id="yt"></div><audio id="vc"></audio>
+
+<section class="sc dk on" data-nn="1">
+  <p class="tag">A WORLD MADE JUST FOR YOU</p>
+  <div class="nm">Faty</div>
+  <p>Un petit univers a été créé pour toi.</p>
+  <p style="font-size:.9rem;opacity:.8">Mets le son pour la meilleure expérience 🎵</p>
+  <button class="btn" data-next>Touche pour entrer</button>
+</section>
+
+<section class="sc" id="s0" data-nn="1" data-seq="1">
+  <div class="stg">
+    <div class="bt" data-t="3">Il existe des personnes qui rendent le monde plus beau, simplement en y étant.</div>
+    <div class="bt" data-t="3.2">Des personnes qui, sans s'en rendre compte, deviennent une partie précieuse de notre histoire.</div>
+    <div class="bt" data-t="2.6">Aujourd'hui, j'ai créé quelque chose rien que pour toi.</div>
+    <div class="bt" data-t="2.8">Parce que tu mérites bien plus qu'un simple message d'anniversaire.</div>
+    <div class="bt h" data-t="2">Faty</div>
+  </div>
+  <button class="btn sb" data-next hidden>J'ai quelque chose pour toi…</button>
+</section>
+
+<section class="sc" data-b="1" data-nn="1">
+  <svg class="cake" id="cake" viewBox="0 0 120 120" role="button" aria-label="Souffler les bougies"><rect x="20" y="70" width="80" height="40" rx="8" fill="#b8325f"/><rect x="30" y="45" width="60" height="28" rx="8" fill="#f7a9c0"/><path d="M20 76q10 10 20 0t20 0 20 0 20 0" fill="none" stroke="#fff8f6" stroke-width="5"/><g fill="#b24a5c"><rect x="43" y="28" width="4" height="18"/><rect x="58" y="28" width="4" height="18"/><rect x="73" y="28" width="4" height="18"/></g><g fill="#ffd36b" class="fl"><ellipse cx="45" cy="21" rx="4" ry="7"/><ellipse cx="60" cy="21" rx="4" ry="7"/><ellipse cx="75" cy="21" rx="4" ry="7"/></g></svg>
+  <p class="rv" id="ck" style="--d:.3s;font-size:.9rem;margin-bottom:.4rem">Touche le gâteau pour souffler les bougies 🕯️</p>
+  <h2 class="rv" style="--d:.3s">Happy Birthday, my favorite person</h2>
+  <div class="nm rv" style="--d:.8s">Faty</div>
+  <p class="rv" style="--d:1.4s">Aujourd'hui, ce n'est pas seulement le jour où le monde célèbre ta naissance. C'est aussi le jour où je célèbre la chance que j'ai de t'avoir dans ma vie. Parmi toutes les personnes que j'aurais pu rencontrer, je suis reconnaissante que nos chemins se soient croisés.</p>
+  <button class="btn rv" style="--d:2.2s" data-next>Notre histoire commence ici…</button>
+</section>
+
+<section class="sc">
+  <h2 class="rv">Notre histoire</h2>
+  <p class="rv" style="--d:.3s">Touche une photo pour retrouver le souvenir.</p>
+  <div class="gl rv" id="gl" style="--d:.6s"></div>
+</section>
+
+<section class="sc">
+  <h2 class="rv">Les petits moments qui nous ressemblent</h2>
+  <p class="rv" style="--d:.3s">Touche une carte pour la retourner.</p>
+  <div class="col rv" id="mm" style="--d:.6s"></div>
+</section>
+
+<section class="sc">
+  <h2 class="rv">Dix raisons pour lesquelles tu es spéciale</h2>
+  <div class="gl rv" id="rs" style="--d:.4s"></div>
+</section>
+
+<section class="sc dk">
+  <button class="env rv" id="env" aria-label="Ouvrir la lettre">💌</button>
+  <p class="rv" id="ep" style="--d:.5s">J'ai quelque chose que je ne veux pas laisser passer sans te dire…</p>
+  <div class="lt" id="lt">
+    <p class="rv" style="--d:.2s">Faty,</p>
+    <p class="rv" style="--d:1.2s">Je cherchais depuis un moment comment te dire tout ça sans que ça sonne trop sérieux. Alors j'ai construit ce petit univers pour toi, parce qu'un simple message ne suffisait pas.</p>
+    <p class="rv" style="--d:3s">Merci d'être cette présence bienveillante sur qui je peux toujours compter, sans hésitation et sans jugement. Merci pour toutes ces heures à discuter de tout et de rien, et pour les fous rires incontrôlables qui nous font mal au ventre.</p>
+    <p class="rv" style="--d:5s">Avec toi, je peux me taquiner, rire de tout et être moi-même, sans me poser de questions.</p>
+    <p class="rv" style="--d:7s">Tu as cette façon de rendre les journées plus légères, simplement en étant toi. Et ça, c'est un cadeau que tu me fais sans même t'en rendre compte.</p>
+    <p class="rv" style="--d:9s">Pour cette nouvelle année, je te souhaite tout le bonheur que tu mérites : des projets qui se réalisent, des gens sincères autour de toi, et encore plus de fous rires qu'avant. Et crois-moi, tu en mérites énormément.</p>
+    <p class="rv" style="--d:11s">Quoi qu'il arrive, sache que tu auras toujours une amie de ton côté. Joyeux anniversaire, ma Faty.</p>
+    <div class="sg rv" style="--d:12.4s">Fatma</div>
+  </div>
+  <button class="btn" id="vo" hidden>Écouter mon message</button>
+</section>
+
+<section class="sc dk">
+  <h2 class="rv">Pour ta nouvelle année</h2>
+  <p class="rv" style="--d:.6s">Je ne te souhaite pas simplement d'être heureuse les jours où tout va bien. Je te souhaite aussi de trouver de la force quand les choses deviennent difficiles, de garder confiance quand tu doutes et de ne jamais oublier que tu mérites de belles choses.</p>
+  <p class="rv" style="--d:2.4s">Je te souhaite des raisons sincères de sourire, des rêves qui deviennent réalité, des moments que tu auras envie de raconter encore et encore, et des personnes qui sauront reconnaître la belle personne que tu es.</p>
+  <p class="rv q" style="--d:4.2s">J'espère que cette année t'apportera des choses que tu n'oses même pas encore imaginer.</p>
+</section>
+
+<section class="sc">
+  <h2 class="rv">Le mur des petites attentions</h2>
+  <div class="nt rv" style="--d:.4s;--t:-1.5deg"><p>Merci d'être toi.</p></div>
+  <div class="nt rv" style="--d:.9s;--t:1.2deg"><p>Merci pour les souvenirs que nous avons déjà créés.</p></div>
+  <div class="nt rv" style="--d:1.4s;--t:-1deg"><p>J'espère que nous aurons encore beaucoup d'histoires à raconter.</p></div>
+  <div class="nt rv" style="--d:1.9s;--t:1.5deg"><p>J'espère que la vie nous permettra de grandir, chacune à notre manière, sans perdre ce qui rend notre amitié si spéciale.</p></div>
+</section>
+
+<section class="sc dk" data-b="1" data-seq="1">
+  <div class="stg">
+    <div class="bt" data-t="3.2">Si tu es arrivée jusqu'ici, j'espère que tu as compris une chose.</div>
+    <div class="bt" data-t="2.8">Je n'avais pas besoin d'une occasion pour tenir à toi.</div>
+    <div class="bt" data-t="3">Ton anniversaire m'a juste donné une raison de te le montrer.</div>
+    <div class="bt" data-t="3.8">Je ne pouvais peut-être pas t'offrir le monde entier, alors j'ai créé un petit univers pour toi.</div>
+    <div class="bt h" data-t="2.4">Joyeux anniversaire</div>
+    <div class="bt h" data-t="2">Faty</div>
+  </div>
+  <div class="sg sb" hidden>Fatma<br><small style="font:400 .85rem Lora,serif;color:var(--ink)">A little universe, made with love, just for you.</small></div>
+</section>
+
+<div id="lb"><div><b id="lbb">📸</b></div></div>
+<nav id="nav"><div id="dots"></div><div id="row"><button class="nv" id="pv">Retour</button><button class="nv" id="nx">Suivant</button></div></nav>
+
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)},A=function(s){return [].slice.call(document.querySelectorAll(s))};
+var sc=A('.sc'),cur=0,dots=$('#dots'),bgm=$('#bgm'),vc=$('#vc'),cv=$('#fx'),cx=cv.getContext('2d'),P=[],C=[],paused=false,rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+sc.forEach(function(){dots.appendChild(document.createElement('i'))});
+var FXS=['zoom','slide','up','flip'];sc.forEach(function(s,i){s.dataset.fx=FXS[i%4]});
+function go(i){
+  cur=Math.max(0,Math.min(sc.length-1,i));
+  sc.forEach(function(s,k){s.classList.toggle('on',k===cur);s.classList.toggle('bf',k<cur)});
+  [].forEach.call(dots.children,function(d,k){d.className=k===cur?'on':''});
+  sc[cur].scrollTop=0;document.documentElement.style.setProperty('--mat','#f3d9d6');
+  $('#nx').style.visibility=(sc[cur].dataset.nn||cur===sc.length-1)?'hidden':'visible';
+  $('#pv').style.visibility=cur<2?'hidden':'visible';
+  $('#row').style.display=(cur<2&&(sc[cur].dataset.nn||cur===sc.length-1))?'none':'flex';
+  clearTimeout(go.t);go.t=setTimeout(function(){A('.sc.on .rv').forEach(function(e){if(!e.closest('.lt'))e.classList.add('in')})},700);
+  seq.id=(seq.id||0)+1;if(sc[cur].dataset.seq)seq(sc[cur]);
+  if(sc[cur].dataset.b){burst();show()}
+  var fl=$('#flare');fl.classList.remove('sw');void fl.offsetWidth;fl.classList.add('sw');
+}
+A('[data-next]').forEach(function(b){b.onclick=function(){ytStart();go(cur+1)}});
+$('#nx').onclick=function(){go(cur+1)};$('#pv').onclick=function(){go(cur-1)};
+var x0=0,y0=0;
+addEventListener('touchstart',function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
+addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;if(cur>1&&Math.abs(dx)>70&&Math.abs(dy)<50)go(cur+(dx<0?1:-1))},{passive:true});
+function rs(){cv.width=innerWidth;cv.height=innerHeight}rs();addEventListener('resize',rs);
+function mk(){var t=Math.random()<.5;return{x:Math.random()*cv.width,y:-12,v:.4+Math.random()*.8,d:Math.random()*2-1,s:t?2+Math.random()*2:5+Math.random()*4,t:t,r:Math.random()*6,c:t?'#b24a5c':'#f29bb5',a:.3+Math.random()*.5}}
+for(var i=0;i<22;i++){var p=mk();p.y=Math.random()*cv.height;P.push(p)}
+var F=[],S=[],H=[],pc=['#b24a5c','#f29bb5','#8b2433','#e9a5b0','#ff7aa8'];function fw(x,y,n){if(rm||paused)return;n=n||44;var c=pc[Math.floor(Math.random()*5)];for(var i=0;i<n;i++){var a=Math.PI*2*i/n,s=2+Math.random()*3.5;F.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,l:1,c:c})}if(F.length>360)F.splice(0,F.length-360)}
+function hearts(n){if(rm||paused)return;for(var i=0;i<n;i++)H.push({x:Math.random()*cv.width,y:cv.height+10,vy:-(1.2+Math.random()*1.8),s:14+Math.random()*16,l:1,c:['#b24a5c','#f29bb5','#8b2433'][i%3]})}
+function show(){if(rm)return;[0,350,700].forEach(function(t){setTimeout(function(){fw(cv.width*(.2+Math.random()*.6),cv.height*(.2+Math.random()*.3))},t)})}
+function burst(){if(rm)return;var k=['#b24a5c','#f29bb5','#8b2433','#e9a5b0','#ff7aa8'];for(var i=0;i<60;i++)C.push({x:cv.width/2,y:cv.height*.5,vx:(Math.random()-.5)*14,vy:-Math.random()*14-2,s:Math.random()*7+4,c:k[i%5],r:0})}
+(function f(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  P.forEach(function(p){
+    cx.globalAlpha=p.a;cx.fillStyle=p.c;cx.beginPath();
+    if(p.t)cx.arc(p.x,p.y,p.s/2,0,7);else cx.ellipse(p.x,p.y,p.s/2,p.s,p.r,0,7);
+    cx.fill();
+    if(!paused&&!rm){p.y+=p.v;p.x+=p.d*.5+Math.sin(p.y/40)*.4;p.r+=.01;if(p.y>cv.height+12)Object.assign(p,mk())}
+  });
+  cx.globalAlpha=1;
+  C.forEach(function(q){q.vy+=.35;q.x+=q.vx;q.y+=q.vy;q.r+=.2;cx.save();cx.translate(q.x,q.y);cx.rotate(q.r);cx.fillStyle=q.c;cx.fillRect(-q.s/2,-q.s/4,q.s,q.s/2);cx.restore()});
+  C=C.filter(function(q){return q.y<cv.height+20});
+  F.forEach(function(p){p.vy+=.04;p.x+=p.vx;p.y+=p.vy;p.vx*=.985;p.l-=.014;cx.globalAlpha=Math.max(p.l,0);cx.fillStyle=p.c;cx.fillRect(p.x,p.y,2.6,2.6)});
+  F=F.filter(function(p){return p.l>0});
+  if(!paused&&!rm&&Math.random()<.004)S.push({x:Math.random()*cv.width*.8,y:Math.random()*cv.height*.3,l:1});
+  S.forEach(function(s){s.x+=8;s.y+=4;s.l-=.04;cx.globalAlpha=Math.max(s.l,0);cx.strokeStyle='#b24a5c';cx.lineWidth=1.5;cx.beginPath();cx.moveTo(s.x,s.y);cx.lineTo(s.x-40,s.y-20);cx.stroke()});
+  S=S.filter(function(s){return s.l>0});
+  H.forEach(function(h){h.y+=h.vy;h.x+=Math.sin(h.y/30)*.6;h.l-=.006;cx.globalAlpha=Math.max(h.l,0);cx.fillStyle=h.c;cx.font=h.s+'px serif';cx.fillText('♥',h.x,h.y)});
+  H=H.filter(function(h){return h.l>0&&h.y>-20});
+  cx.globalAlpha=1;
+  requestAnimationFrame(f);
+})();
+A('.bt').forEach(function(b){var t=b.textContent,h=b.classList.contains('h');b.innerHTML=h?t.split('').map(function(c,i){return c===' '?' ':'<span style="--i:'+i+'">'+c+'</span>'}).join(''):t.split(' ').map(function(w,i){return '<span style="--i:'+i+'">'+w+'</span>'}).join(' ')});
+function run(s,from,t){var id=seq.id,bs=[].slice.call(s.querySelectorAll('.bt')),sb=s.querySelector('.sb');
+  bs.forEach(function(b,i){if(i<from)return;var d=parseFloat(b.dataset.t)||3;
+    setTimeout(function(){if(seq.id!==id)return;seq.cur=i;b.classList.remove('out');b.classList.add('in');hearts(6)},t*1000);
+    if(i<bs.length-1)setTimeout(function(){if(seq.id!==id)return;b.classList.add('out')},(t+d)*1000);
+    t+=d+.35});
+  if(sb)setTimeout(function(){if(seq.id!==id)return;sb.hidden=false;void sb.offsetWidth;sb.classList.add('in')},t*1000)}
+function seq(s){var bs=[].slice.call(s.querySelectorAll('.bt')),sb=s.querySelector('.sb');
+  bs.forEach(function(b){b.classList.remove('in','out')});seq.cur=-1;
+  if(sb){sb.classList.remove('in');sb.hidden=true}
+  run(s,0,.9)}
+A('[data-seq]').forEach(function(s){s.addEventListener('pointerdown',function(e){
+  if(e.target.closest('button')||!s.classList.contains('on'))return;
+  var sb=s.querySelector('.sb'),bs=[].slice.call(s.querySelectorAll('.bt')),c=seq.cur;
+  if(sb&&sb.classList.contains('in'))return;
+  seq.id++;
+  if(c>=0&&c<bs.length-1)bs[c].classList.add('out');
+  if(c+1<bs.length){run(s,c+1,.4)}else if(sb){sb.hidden=false;void sb.offsetWidth;sb.classList.add('in')}})});
+addEventListener('pointerdown',function(e){fw(e.clientX,e.clientY,16)});
+$('#pz').onclick=function(){paused=!paused;document.body.classList.toggle('pz',paused);this.setAttribute('aria-pressed',paused);if(paused)C=[]};
+var yt=$('#yt');function ytStart(){if(yt.dataset.s)return;yt.dataset.s=1;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/Wfts_-M3qgA?autoplay=1&loop=1&playlist=Wfts_-M3qgA&playsinline=1&rel=0';f.allow='autoplay; encrypted-media';f.title='Éternelle - Jahman X-Press';yt.appendChild(f)}
+$('#mu').onclick=function(){yt.classList.toggle('off')};
+if(vc.getAttribute('src')){$('#vo').hidden=false;$('#vo').onclick=function(){vc.paused?vc.play():vc.pause()}}
+var G=[["Les bouts de Faty","Au début, je n'avais qu'un pied, un demi-visage… Maintenant on en rigole, et je ne te lâche pas avec ça.","1.jpg"],["Un fou rire de plus","Ta photo et ton souvenir viendront ici.","2.jpg"],["Un jour qui compte","Ta photo et ton souvenir viendront ici.","3.jpg"],["Toi, tout simplement","Ta photo et ton souvenir viendront ici.","4.jpg"],["Une sortie à nous","Ta photo et ton souvenir viendront ici.","5.jpg"],["Nous deux","Ta photo et ton souvenir viendront ici.","6.jpg"]];
+G.forEach(function(g,i){var b=document.createElement('button');b.className='pol';b.style.setProperty('--t',(i%2?2:-2)+'deg');b.innerHTML='<b>📸</b>';var bx=b.firstChild,ok=false,im;if(g[2]){im=new Image();im.alt=g[0];im.onload=function(){ok=true;bx.textContent='';bx.style.background='none';bx.appendChild(im)};im.src=g[2]}b.onclick=function(){var lb=$('#lbb');lb.textContent='📸';lb.style.background='';if(ok){lb.textContent='';lb.style.background='none';lb.appendChild(im.cloneNode())}$('#lb').classList.add('on')};$('#gl').appendChild(b)});
+$('#lb').onclick=function(){this.classList.remove('on')};
+function fc(host,a,b,c){var e=document.createElement('button');e.className='fc '+(c||'');e.innerHTML='<span class="ft">'+a+'</span><span class="bk">'+b+'</span>';e.onclick=function(){e.classList.toggle('o')};host.appendChild(e)}
+[["Tu te souviens de ça ?","Ces heures passées à discuter de tout et de rien, sans jamais voir le temps passer."],["Nos moments de folie","Les fous rires incontrôlables qui nous font mal au ventre."],["Je ne répète pas","Je n'aime pas me répéter, et parfois tu ne m'entends pas. Alors je te dis : non, je ne répète pas. On se dispute pour ça… et on finit toujours par en rire."],["Si quelqu'un nous observait de l'extérieur…","Il verrait deux amies qui se taquinent sans arrêt, qui se disputent pour un rien (surtout quand je refuse de me répéter), puis qui rient cinq minutes après."]].forEach(function(m){fc($('#mm'),m[0],m[1])});
+["Tu me fais rire, même quand je boude.","Ta bienveillance, sans jamais me juger.","Nos conversations de tout et de rien.","Tu es toi-même, sans filtre.","Les fous rires qui nous font mal au ventre.","Tu es quelqu'un sur qui je peux toujours compter.","Même quand tu ne m'entends pas, tu restes ma personne.","Notre complicité qui n'a pas besoin de mots.","Les souvenirs que nous avons déjà créés.","Ton sourire qui rend les journées plus légères."].forEach(function(t,i){fc($('#rs'),i+1,t)});
+fc($('#rs'),'11','Et si je devais ajouter une onzième raison, puis une douzième, puis une centième, je pourrais continuer longtemps. Parce que certaines personnes ne se résument pas à une liste. Elles se ressentent, elles se vivent.','w');
+$('#cake').onclick=function(){var c=this;if(c.classList.contains('off'))return;c.classList.add('off');$('#ck').textContent='Fais un vœu… ✨';var r=c.getBoundingClientRect();fw(r.left+r.width/2,r.top,60);show();burst()};
+$('#env').onclick=function(){this.hidden=true;$('#ep').hidden=true;$('#lt').classList.add('show');void $('#lt').offsetWidth;A('#lt .rv').forEach(function(e){e.classList.add('in')});if(vc.getAttribute('src'))$('#vo').hidden=false};
+go(0);
+})();
+</script>
+</body>
+</html>
